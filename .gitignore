@@ -99,3 +99,8 @@ func hexToColor(hex string) (color.Color, error) {
 	if err != nil {
 		return c, err
 	}
+
+g, err := strconv.ParseInt(hex[2:4], 16, 16)
+	if err != nil {
+		return c, err
+	}
