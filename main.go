@@ -79,3 +79,11 @@ func main() {
 	defer o.Close()
 	gif.EncodeAll(o, gopher)
 }
+
+func hexToColor(hex string) (color.Color, error) {
+	c := color.RGBA{0, 0, 0, 255}
+
+	r, err := strconv.ParseInt(hex[0:2], 16, 16)
+	if err != nil {
+		return c, err
+	}
