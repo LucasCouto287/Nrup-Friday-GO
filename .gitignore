@@ -33,3 +33,10 @@ func init() {
 		"FFD081",
 		"FF8181",
 	} {
+	c, err := hexToColor(s)
+		if err != nil {
+			log.Fatal(err)
+		}
+		ParrotColors = append(ParrotColors, c)
+		DarkParrotColors = append(DarkParrotColors, darken(c))
+	}
