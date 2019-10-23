@@ -29,3 +29,21 @@ for _, s := range []string{
 		"81FF81",
 		"FFD081",
 		"FF8181",
+} {
+		c, err := hexToColor(s)
+		if err != nil {
+			log.Fatal(err)
+		}
+		ParrotColors = append(ParrotColors, c)
+		DarkParrotColors = append(DarkParrotColors, darken(c))
+	}
+
+	LightGopherBlue, err = hexToColor("8BD0FF")
+	if err != nil {
+		log.Fatal(err)
+	}
+	DarkGopherBlue, err = hexToColor("82C2EE")
+	if err != nil {
+		log.Fatal(err)
+	}
+}
