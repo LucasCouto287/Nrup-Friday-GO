@@ -97,3 +97,9 @@ func hexToColor(hex string) (color.Color, error) {
 	if err != nil {
 		return c, err
 	}
+c.R = uint8(r)
+	c.G = uint8(g)
+	c.B = uint8(b)
+
+	return c, nil
+}
