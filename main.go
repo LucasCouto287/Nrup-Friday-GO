@@ -14,3 +14,6 @@ var (
 	LightGopherBlue  color.Color
 	DarkGopherBlue   color.Color
 )
+
+func init() {
+	var err error
