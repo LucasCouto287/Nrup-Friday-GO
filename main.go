@@ -47,3 +47,22 @@ for _, s := range []string{
 		log.Fatal(err)
 	}
 }
+
+func main() {
+
+	var (
+		lbi int
+		dbi int
+	)
+
+
+	f, err := os.Open("dancing-gopher.gif")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer f.Close()
+
+	gopher, err := gif.DecodeAll(f)
+	if err != nil {
+		log.Fatal(err)
+	}
