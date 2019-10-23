@@ -108,3 +108,10 @@ b, err := strconv.ParseInt(hex[4:6], 16, 16)
 	if err != nil {
 		return c, err
 	}
+
+c.R = uint8(r)
+	c.G = uint8(g)
+	c.B = uint8(b)
+
+	return c, nil
+}
