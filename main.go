@@ -103,3 +103,12 @@ c.R = uint8(r)
 
 	return c, nil
 }
+
+
+func darken(c color.Color) color.Color {
+	r, g, b, a := c.RGBA()
+	r = r - 15
+	g = g - 15
+	b = b - 15
+	return color.RGBA{uint8(r), uint8(g), uint8(b), uint8(a)}
+}
