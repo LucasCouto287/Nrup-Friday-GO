@@ -40,3 +40,36 @@ func init() {
 		ParrotColors = append(ParrotColors, c)
 		DarkParrotColors = append(DarkParrotColors, darken(c))
 	}
+	
+	
+	LightGopherBlue, err = hexToColor("8BD0FF")
+	if err != nil {
+		log.Fatal(err)
+	}
+	DarkGopherBlue, err = hexToColor("82C2EE")
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
+
+func main() {
+	// Indexes for light and dark blue in palettes.
+	var (
+		lbi int
+		dbi int
+	)
+
+	// Open the dancing gopher gif
+	f, err := os.Open("dancing-gopher.gif")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer f.Close()
+
+	// Decode the gif so we can edit it
+	gopher, err := gif.DecodeAll(f)
+	if err != nil {
+		log.Fatal(err)
+	}
+
