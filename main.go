@@ -66,3 +66,16 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	
+	for i, frame := range gopher.Image {
+		lbi = frame.Palette.Index(LightGopherBlue)
+		dbi = frame.Palette.Index(DarkGopherBlue)
+
+		frame.Palette[lbi] = ParrotColors[i%len(ParrotColors)]
+		frame.Palette[dbi] = DarkParrotColors[i%len(DarkParrotColors)]
+	}
+
+	o, _ := os.OpenFile("party-gopher.gif", os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0600)
+	defer o.Close()
+	gif.EncodeAll(o, gopher)
+}
