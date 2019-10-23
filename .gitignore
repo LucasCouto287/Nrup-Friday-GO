@@ -73,3 +73,13 @@ func main() {
 		log.Fatal(err)
 	}
 
+
+	// Instead of changing pixels with Set(x, y int, c color.Color)
+	// let's just tweak the palette to replace those colors.
+	for i, frame := range gopher.Image {
+		lbi = frame.Palette.Index(LightGopherBlue)
+		dbi = frame.Palette.Index(DarkGopherBlue)
+
+		frame.Palette[lbi] = ParrotColors[i%len(ParrotColors)]
+		frame.Palette[dbi] = DarkParrotColors[i%len(DarkParrotColors)]
+	}
