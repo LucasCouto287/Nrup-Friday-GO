@@ -104,3 +104,7 @@ g, err := strconv.ParseInt(hex[2:4], 16, 16)
 	if err != nil {
 		return c, err
 	}
+b, err := strconv.ParseInt(hex[4:6], 16, 16)
+	if err != nil {
+		return c, err
+	}
